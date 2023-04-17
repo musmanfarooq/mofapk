@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { storage } from "../../../firebase";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Index = () => {
   const [imageUrls, setImageUrls] = useState([]);
@@ -36,22 +37,20 @@ const Index = () => {
     <>
       {isLoading ? (
         <LoadingSpinner />
-      ) 
-      : (
+      ) : (
         <div className="flex flex-wrap gap-4 p-4">
           {imageUrls.map((url) => (
-            <div>
-              <img
-                className="w-[350px] cursor-pointer transition-all hover:scale-105"
-                key={url}
+            <div key={url}>
+              <Image
                 src={url}
-                alt="firebase-img"
+                width="350px"
+                height="auto"
+                alt="screenshot"
               />
             </div>
           ))}
         </div>
-      )
-      }
+      )}
     </>
   );
 };
