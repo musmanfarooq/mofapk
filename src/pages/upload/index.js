@@ -4,7 +4,7 @@ import { useState } from "react";
 import { db, storage } from "../../../firebase";
 import firebase from "firebase/compat/app";
 
-const index = () => {
+const Index = () => {
   const [image, setImage] = useState();
 
   const uploadPic = (e) => {
@@ -48,4 +48,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
