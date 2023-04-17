@@ -1,3 +1,5 @@
+'use client';
+
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { storage } from "../../../firebase";
 import React, { useState, useEffect } from "react";
