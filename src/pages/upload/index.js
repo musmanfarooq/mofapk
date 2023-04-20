@@ -1,11 +1,17 @@
-// import Button from "@/components/button";
+"use client";
+
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db, storage } from "../../../firebase";
 import firebase from "firebase/compat/app";
+import { useSelector } from "react-redux";
+import { selectUser } from "@/store/storeSlice/userSlice";
+import { useRouter } from "next/router";
 
 const Index = () => {
   const [image, setImage] = useState();
+  const user = useSelector(selectUser);
+  const { push } = useRouter();
 
   const uploadPic = (e) => {
     e.preventDefault();
@@ -20,6 +26,12 @@ const Index = () => {
       setImage("");
     }
   };
+
+  useEffect(() => {
+    if (user == null){
+      push("/")
+    }
+  }, [user, push]);
 
   return (
     <div className="pt-4">
