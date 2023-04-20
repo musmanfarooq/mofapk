@@ -7,6 +7,7 @@ import firebase from "firebase/compat/app";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/store/storeSlice/userSlice";
 import { useRouter } from "next/router";
+import Button from "@/components/Button";
 
 const Index = () => {
   const [image, setImage] = useState();
@@ -28,8 +29,8 @@ const Index = () => {
   };
 
   useEffect(() => {
-    if (user == null){
-      push("/")
+    if (user == null) {
+      push("/");
     }
   }, [user, push]);
 
@@ -48,14 +49,10 @@ const Index = () => {
           accept="image/*"
           onChange={(e) => setImage(e.target.files[0])}
         />
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          type="submit"
-          onClick={uploadPic}
-        >
-          Submit
-        </button>
+        <Button content="Submit" type="submit" clickfunction={uploadPic} />
       </form>
+      <br />
+      <Button className="block ml-auto mr-auto mt-5" content="Back to Home" onClick={() => push("/")} />
     </div>
   );
 };

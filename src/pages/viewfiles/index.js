@@ -3,13 +3,16 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { storage } from "../../../firebase";
 import React, { useState, useEffect } from "react";
+import Button from "@/components/Button";
+import { useRouter } from "next/router";
 
 const Index = () => {
   const [imageUrls, setImageUrls] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { push } = useRouter();
 
   useEffect(() => {
-    let isMounted = true; // add a boolean variable to track whether the component is mounted
+    let isMounted = true;
     storage
       .ref("images")
       .listAll()
@@ -50,6 +53,11 @@ const Index = () => {
           ))}
         </div>
       )}
+      <Button
+        className="block ml-auto mr-auto mt-5"
+        content="Back to Home"
+        onClick={() => push("/")}
+      />
     </>
   );
 };

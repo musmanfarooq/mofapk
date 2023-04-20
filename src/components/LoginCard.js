@@ -2,7 +2,6 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
 import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { adduser } from "@/store/storeSlice/userSlice";
@@ -18,7 +17,7 @@ const LoginCard = () => {
       push("/upload");
       dispatch(
         adduser({
-          user: "mofapk"
+          user: "mofapk",
         })
       );
     } else {
@@ -30,7 +29,7 @@ const LoginCard = () => {
   }
 
   return (
-    <div className="mr-auto ml-auto">
+    <div className="mr-auto ml-auto pt-4">
       <div className="max-w-[350px] mr-auto ml-auto">
         <form onSubmit={passwordhandle}>
           <label
@@ -47,6 +46,7 @@ const LoginCard = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <Button content="Login" onClick={passwordhandle} />
         </form>
       </div>
       {wrongPass && <h3>Password is incorrect</h3>}
