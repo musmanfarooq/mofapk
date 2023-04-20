@@ -18,7 +18,7 @@ const LoginCard = () => {
       push("/upload");
       dispatch(
         adduser({
-          pass: password,
+          user: "mofapk"
         })
       );
     } else {
