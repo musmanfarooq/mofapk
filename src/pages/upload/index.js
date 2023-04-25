@@ -35,10 +35,10 @@ const Index = () => {
   }, [user, push]);
 
   return (
-    <div className="pt-4">
+    <div className="pt-4 text-center">
       <form className="max-w-[50vw] mr-auto ml-auto" id="form-file-upload">
         <label id="label-file-upload" htmlFor="input-file-upload">
-          <div>
+          <div className="mb-3 md:mb-0">
             <p>Upload your File Here</p>
           </div>
         </label>
@@ -49,10 +49,10 @@ const Index = () => {
           accept="image/*"
           onChange={(e) => setImage(e.target.files[0])}
         />
-        <Button content="Submit" type="submit" clickfunction={uploadPic} />
+        <Button className="mt-[50px] md:mt-[20px]" content="Submit" type="submit" onClick={uploadPic} />
       </form>
       <br />
-      <Button className="block ml-auto mr-auto mt-5" content="Back to Home" onClick={() => push("/")} />
+      <Button className="block ml-auto mr-auto mt-3" content="Back to Home" onClick={() => push("/")} />
     </div>
   );
 };

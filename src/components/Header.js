@@ -5,17 +5,19 @@ import { useRouter } from "next/router";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const {push} = useRouter();
+  const { push } = useRouter();
 
   const user = useSelector(selectUser);
   return (
     <div className="flex gap-2 justify-between p-4 shadow-sm items-center">
-      <h5 className="text-2xl cursor-pointer" onClick={()=> push("/")}>Mofapk</h5>
+      <h5 className="text-2xl cursor-pointer" onClick={() => push("/")}>
+        Mofapk
+      </h5>
       {user && (
         <div className="flex gap-3 justify-between items-center">
-          <p>Welcome : Back</p>
           <Button
-            content="Sign Out"
+            content="Log Out"
+            className="bg-red-500 hover:bg-red-600"
             onClick={() => {
               dispatch(removeuser());
             }}

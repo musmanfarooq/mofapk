@@ -10,10 +10,12 @@ const LoginCard = () => {
   const [wrongPass, setWrongPass] = useState(false);
   const { push } = useRouter();
   const dispatch = useDispatch();
+  const userPassword ="usman@123"
 
   function passwordhandle(e) {
     e.preventDefault();
-    if (password === process.env.Password_Key) {
+    console.log(userPassword)
+    if (userPassword === password) {
       push("/upload");
       dispatch(
         adduser({
@@ -48,7 +50,7 @@ const LoginCard = () => {
             required
           />
           <Button
-            className="mt-5 md:mt-2"
+            className="mt-3 md:mt-2"
             content="Login"
             onClick={passwordhandle}
           />
