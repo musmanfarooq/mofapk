@@ -1,15 +1,16 @@
 import { removeuser, selectUser } from "@/store/storeSlice/userSlice";
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "./Button";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const {push} = useRouter();
 
   const user = useSelector(selectUser);
   return (
     <div className="flex gap-2 justify-between p-4 shadow-sm items-center">
-      <h5 className="text-2xl">Mofapk</h5>
+      <h5 className="text-2xl cursor-pointer" onClick={()=> push("/")}>Mofapk</h5>
       {user && (
         <div className="flex gap-3 justify-between items-center">
           <p>Welcome : Back</p>

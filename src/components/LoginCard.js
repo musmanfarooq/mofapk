@@ -13,7 +13,7 @@ const LoginCard = () => {
 
   function passwordhandle(e) {
     e.preventDefault();
-    if (password === "usman@123") {
+    if (password === process.env.Password_Key) {
       push("/upload");
       dispatch(
         adduser({
@@ -21,6 +21,7 @@ const LoginCard = () => {
         })
       );
     } else {
+      setPassword("");
       setWrongPass(true);
       setTimeout(() => {
         setWrongPass(false);
@@ -46,10 +47,14 @@ const LoginCard = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <Button content="Login" onClick={passwordhandle} />
+          <Button
+            className="mt-5 md:mt-2"
+            content="Login"
+            onClick={passwordhandle}
+          />
         </form>
       </div>
-      {wrongPass && <h3>Password is incorrect</h3>}
+      {wrongPass && <h3 className="text-center">Password is incorrect</h3>}
     </div>
   );
 };
